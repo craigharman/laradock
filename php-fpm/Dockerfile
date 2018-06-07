@@ -44,6 +44,15 @@ RUN apt-get update -yqq && \
 #   - INSTALL_ZIP_ARCHIVE=true
 #
 
+#####
+# ZERO MQ
+#####
+
+RUN apt-get update -yqq && \
+    apt-get install -y libzmq3-dev && \
+    pecl install zmq-beta  && \
+    docker-php-ext-enable zmq
+
 ###########################################################################
 # SOAP:
 ###########################################################################
